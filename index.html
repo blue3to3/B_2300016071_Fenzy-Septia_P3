@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>To-Do App</title>
+        <style>
+        body {
+            font-family: sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            width: 350px;
+            margin: 0 auto;
+        }
+
+        .control-panel {
+            margin-bottom: 20px;
+        }
+
+        .control-panel select,
+        .control-panel button,
+        .control-panel input {
+            margin: 5px;
+            padding: 5px;
+        }
+
+        #tasklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        #tasklist li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            position: relative;
+        }
+
+        .close {
+            color: red;
+            float: right;
+            cursor: pointer;
+        }
+
+        .dark-mode {
+            background-color: #333;
+            color: white;
+        }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h2>My To-Do List</h2>
+
+            <div class="control-panel">
+                <!-- Background Color Control -->
+                <label for="bgColor">Background Color:</label>
+                <select id="bgColor" onchange="changeBackgroundColor()">
+                    <option value="white">White</option>
+                    <option value="lightgray">Light Gray</option>
+                    <option value="lightblue">Light Blue</option>
+                    <option value="lightgreen">Light Green</option>
+                </select>
+
+                <!-- Font Size Control -->
+                <label for="fontSize">Font Size:</label>
+                <input type="range" id="fontSize" min="12" max="36" value="16" oninput="changeFontSize(this.value)">
+                <span id="fontSizeValue">16px</span>
+
+                <!-- Toggle Dark Mode -->
+                <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+                <!-- Font Style Control -->
+                <label for="fontStyle">Font Style:</label>
+                <select id="fontStyle" onchange="changeFontStyle()">
+                    <option value="sans-serif">Sans-Serif</option>
+                    <option value="serif">Serif</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                </select>
+            </div>
+
+            <input type="text" id="newTask" placeholder="Add a new task....">
+            <button onclick="addTask()">Add</button>
+
+            <ul id="tasklist"></ul>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
